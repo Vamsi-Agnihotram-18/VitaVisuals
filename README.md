@@ -1,5 +1,14 @@
 VITAVISUALS - Health Care Chatbot with OCR Functionality
 
+Contributors:
+
+Vamsi Agnihotram
+
+Udaya Lekha Madapuri 
+
+Varun Papishetty 
+
+Masters Students of San Jose State University!
 
 Overview:
 
