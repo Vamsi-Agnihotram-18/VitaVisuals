@@ -12,16 +12,17 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+    max-width: 800px;
+    margin: 50px auto;
+    background: #c4ccd4; /* Darker shade of greyish-blue */
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
         h1 {
             text-align: center;
-            color: #333;
+            color: #2c3e50; /* Dark bluish-gray */
         }
         .buttons {
             text-align: center;
@@ -40,27 +41,44 @@
         .buttons button:hover {
             background-color: #0056b3;
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-        .modal form {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 8px;
-        }
+
+ .modal {
+    display: none;
+    position: fixed;
+    z-index: 2; /* Increased z-index for better overlay stacking */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Darker for better focus on the form */
+    padding-top: 60px;
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for modal appearance */
+}
+
+.modal form {
+    background-color: #fff; /* Maintained white but you can choose any light color */
+    margin: 5% auto;
+    padding: 30px; /* Increased padding for better spacing */
+    border: none; /* Removed border for a cleaner look */
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s ease-in-out; /* Smooth transform effect */
+    transform: translateY(-20px); /* Initial position set slightly higher */
+}
+
+/* CSS to animate the modal form when visible */
+.modal.active {
+    display: block;
+    opacity: 1;
+}
+
+.modal.active form {
+    transform: translateY(0); /* End position aligns at center */
+}
+
         .result {
             margin-top: 20px;
         }
@@ -75,14 +93,42 @@
             border-radius: 4px;
             overflow-x: auto;
         }
+        .hero {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            color: #233a51; /* Dark bluish-gray */
+            margin: 0 0 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin: 0 0 20px;
+        }
+
+
     </style>
 </head>
 <body>
+
+    <header class="hero">
+        <h1>Welcome to Vita Visuals Application Dashboard</h1>
+        <p>Empowering patients and doctors with easy-to-use AI-driven health insights and diagnostics.</p>
+    </header>
+
     <div class="container">
         <h1>Healthcare Application</h1>
         <div class="buttons">
             <button onclick="document.getElementById('ocrUpload').style.display='block'">OCR</button>
             <button onclick="document.getElementById('chatbotModal').style.display='block'">Chatbot</button>
+            <button onclick="window.location.href='/visuals'">Visualize</button>
+
         </div>
         <div id="ocrUpload" class="modal">
             <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
@@ -154,4 +200,3 @@
     </script>
 </body>
 </html>
-

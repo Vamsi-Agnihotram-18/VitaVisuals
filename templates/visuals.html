@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .visual {
+            margin-bottom: 20px;
+        }
+        .visual h2 {
+            color: #333;
+        }
+        .visual img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Visualizations</h1>
+        <div class="visual">
+            <h2>Frequency of Symptoms in Healthcare Training Data</h2>
+            <img src="{{ url_for('static', filename='pt1.png') }}" alt="Visualization 1">
+            <h5>This bar plot visualizes the frequency of various symptoms in the healthcare training dataset, highlighting the most common symptoms for diagnostic analysis.</h5>
+        </div>
+        <div class="visual">
+            <h2>Symptom Correlation Heatmap</h2>
+            <img src="{{ url_for('static', filename='pt2.png') }}" alt="Visualization 2">
+            <h5>This heatmap visualizes the correlations between different symptoms in the healthcare training dataset, indicating how symptoms relate to each other for diagnostic purposes.</h5>
+        </div>
+        <div class="visual">
+            <h2>Distribution of Prognosis</h2>
+            <img src="{{ url_for('static', filename='pt3.png') }}" alt="Visualization 3">
+            <h5>This bar plot shows the number of cases for each prognosis, highlighting the prevalence of different medical conditions in the dataset.</h5>
+        </div>
+        <div class="visual">
+            <h2>Pairwise Relationship of Symptoms</h2>
+            <img src="{{ url_for('static', filename='pt4.png') }}" alt="Visualization 4">
+            <h5>This pair plot visualizes the pairwise relationship between symptoms, with each symptom's presence or absence colored by the corresponding prognosis category.</h5>
+        </div>
+        <div class="visual">
+            <h2>Box Plot of Symptom Severity by Prognosis</h2>
+            <img src="{{ url_for('static', filename='pt5.png') }}" alt="Visualization 5">
+            <h5>Comparison of symptom severity between different prognoses.</h5>
+        </div>
+    </div>
+</body>
+</html>

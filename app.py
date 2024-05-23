@@ -1,16 +1,15 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
 import os
 import pandas as pd
-import re
-import pyttsx3
 import csv
 from sklearn import preprocessing
-from sklearn.tree import DecisionTreeClassifier, _tree
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 import numpy as np
 from ocr import read_pdf 
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
@@ -93,6 +92,10 @@ def upload_file():
         extracted_text = read_pdf(file_path)  # Assuming read_pdf function is implemented
         return render_template('index.html', extracted_text=extracted_text)
     return redirect(request.url)
+
+@app.route('/visuals')
+def visuals():
+    return render_template('visuals.html')
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
