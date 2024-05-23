@@ -9,6 +9,11 @@ Project Structure
 The project is organized into the following files and directories:
 
 
+Application Flowchart:
+
+![Untitled Diagram drawio (2)](https://github.com/Vamsi-Agnihotram-18/VitaVisuals/assets/142208799/c8f96cfb-152d-47c0-97c8-12c904641533)
+
+
 VITAVISUALS/
 │
 ├── app.py               # Main Flask application
